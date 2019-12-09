@@ -1,0 +1,27 @@
+/*Левый блок меню*/
+.leftBar{
+  padding: 15px;
+  border: solid 2px #f0a30d;
+  &__wrapper{
+  //  для будущего контента
+  }
+}
+
+.flexRaw{
+  display: flex;
+  align-items: center;
+  svg{
+    height: 17px;
+  }
+  hr{
+    border: 1px solid #f0a30d;
+  }
+}
+
+.checkBox{
+//галочки доделать
+}
+
+.info{
+  margin-left: 5px;
+}

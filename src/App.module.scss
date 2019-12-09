@@ -1,0 +1,35 @@
+*{
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+h1,h2,h3,h4,h5,h6,p,span,div{
+  margin: 0;
+  padding: 0;
+
+}
+
+/*контейнер для размера контента сайта*/
+.container{
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+
+  /*background-color: #F6F6F6;*/
+
+}
+
+/*Блоки сайд бара и контента*/
+.gridContainer{
+  display: grid;
+  grid-template-columns: 3fr 6fr;
+  grid-gap: 40px;
+}
+
+
+
+

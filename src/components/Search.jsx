@@ -1,24 +1,25 @@
 import React from 'react';
 import {ReactComponent as SearchIcon} from "./img/searchIcon.svg";
+import s from './Search.module.scss';
 
 const SearchBar = () => {
 return(
-    <div className="Search">
-        <div className="Search__wrapper">
-            <div className="Search__wrapper__left">
+    <div className={s.search}>
+        <div className={s.search__wrapper}>
+            <div className={s.search__wrapper__left}>
                 <h1> Пошук</h1>
                 <SearchIcon />
-                <div className="searchBar"></div>
+                <div className={s.inputText}> </div>
                 {/*<svg href={searchIcon}></svg>*/}
             </div>
-            <div className='Search__wrapper__right'>
-                <span className="currentCity">Львів </span>
-                <span className="changeCity">обрати інше?</span>
+            <div className={s.search__wrapper__right}>
+                <span className={s.currentCity}>Львів </span>
+                <span className={s.changeCity}>обрати інше?</span>
             </div>
         </div>
-        <div className="Search__wrapper">
+        <div className={s.search__wrapper}>
             <h1>Фільтри</h1>
-            <h1>Актуальніnpm волонтери</h1>
+            <h1>Актуальні волонтери</h1>
         </div>
     </div>
 )

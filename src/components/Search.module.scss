@@ -1,0 +1,59 @@
+/*блок поиска*/
+.search{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+  &__wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &__left{
+      position: relative;
+      svg{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        /*width: 40px;*/
+        left: 93%;
+        top: 9%;
+        fill: #9c4b86;
+      }
+      h1{
+        position: absolute;
+        font-size: 25px;
+        top: 4%;
+        left: 3%;
+        color: #9c4b86;
+      }
+    }
+    &__right{
+      display: flex;
+      width: 250px;
+      height: 40px;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+}
+
+//поле ввода текста
+.inputText{
+  width: 600px;
+  height: 40px;
+  border-radius: 50px;
+  border: 2px solid #9c4b86;
+}
+
+//выбор города при поиске
+
+.currentCity{
+  font-size: 25px;
+  color: #f0a30d;
+}
+.changeCity{
+  font-size: 15px;
+  color: #f0a30d;
+
+}

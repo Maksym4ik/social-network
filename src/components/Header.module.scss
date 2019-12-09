@@ -1,0 +1,23 @@
+/*шапка сайта*/
+.Header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  margin-bottom: 20px;
+  &__bg{
+    position: absolute;
+    left: 0;
+    width:100vw;
+    height: 70px;
+    border-bottom: 2px solid #f0a30d;
+  }
+  a{
+    color:#9c4b86;
+    text-decoration: none;
+    font-size: 20px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+}

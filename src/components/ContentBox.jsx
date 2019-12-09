@@ -1,15 +1,16 @@
 import React from 'react';
 import Photo from './img/photo.jpg';
+import c from './ContentBox.module.scss';
 
 const ContentBox = () => {
 return(
-<div className="contentBox">
-    <div className="flex">
+<div className={c.contentBox}>
+    <div className={c.flex}>
         <img src={Photo} alt=""/>
-        <div className="contentBox__wrapper__right">
+        <div className={c.wrapper}>
         <h1>Генадій</h1>
         <h3>Директор</h3>
-            <div className="flex wrapper200">
+            <div className={`${c.flex} ${c.wrapper200}`}>
         <h3>Львів</h3>
         <h3>17 років</h3>
             </div>
@@ -19,12 +20,12 @@ return(
         </div>
     </div>
     <hr/>
-    <div className="flex">
+    <div className={c.flex}>
         <img src={Photo} alt=""/>
-        <div className="contentBox__wrapper__right">
+        <div className={c.wrapper}>
             <h1>Генадій</h1>
             <h3>Директор</h3>
-            <div className="flex wrapper200">
+            <div className={`${c.flex} ${c.wrapper200}`}>
                 <h3>Львів</h3>
                 <h3>17 років</h3>
             </div>
@@ -34,12 +35,12 @@ return(
         </div>
     </div>
     <hr/>
-    <div className="flex">
+    <div className={c.flex}>
         <img src={Photo} alt=""/>
-        <div className="contentBox__wrapper__right">
+        <div className={c.wrapper}>
             <h1>Генадій</h1>
             <h3>Директор</h3>
-            <div className="flex wrapper200">
+            <div className={`${c.flex} ${c.wrapper200}`}>
                 <h3>Львів</h3>
                 <h3>17 років</h3>
             </div>
