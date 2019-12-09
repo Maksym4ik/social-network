@@ -1,15 +1,17 @@
 import React from 'react';
 import h from './Header.module.scss';
+import {ReactComponent as SvgLogo} from "./img/SvgLogo.svg";
+import Logo from "./Logo";
 
 
 const Header = () => {
 return(
 <header className={h.Header}>
-
-    <h1><a href='#s'>волонтери</a></h1>
-    <h1> <a href='#s'>події</a></h1>
-    <h1><a href='#s'>додати подію</a></h1>
-    <h1> <a href='#s'>профіль</a></h1>
+    <Logo/>
+    <a href='#s'>волонтери</a>
+    <a href='#s'>події</a>
+    <a href='#s'>додати подію</a>
+    <a href='#s'>профіль</a>
     <div className={h.Header__bg}> </div>
 </header>
 )

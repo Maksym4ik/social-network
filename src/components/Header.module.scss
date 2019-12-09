@@ -1,6 +1,6 @@
 /*шапка сайта*/
 .Header{
-  width: 100%;
+  width: 1000px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,7 +17,5 @@
     color:#9c4b86;
     text-decoration: none;
     font-size: 20px;
-    height: 100px;
-    margin-bottom: 20px;
   }
 }
