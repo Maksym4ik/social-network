@@ -7,7 +7,7 @@ return(
     <div className={s.search}>
         <div className={s.search__wrapper}>
             <div className={s.search__wrapper__left}>
-                <h1> Пошук</h1>
+                <span> Пошук</span>
                 <SearchIcon />
                 <div className={s.inputText}> </div>
                 {/*<svg href={searchIcon}></svg>*/}
