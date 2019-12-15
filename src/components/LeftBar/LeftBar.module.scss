@@ -1,7 +1,11 @@
 /*Левый блок меню*/
+@import "../mixins/mixins";
+
 .leftBar{
   padding: 15px;
-  border: solid 2px #f0a30d;
+  border: solid 2px $secondaryColor;
+  border-radius: 5px;
+
   &__wrapper{
   //  для будущего контента
   }
@@ -14,7 +18,7 @@
     height: 17px;
   }
   hr{
-    border: 1px solid #f0a30d;
+    border: 1px solid $secondaryColor;
   }
 }
 

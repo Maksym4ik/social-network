@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactComponent as Arrow } from './img/arrow.svg';
-import '../App.module.scss';
+import { ReactComponent as Arrow } from '../img/arrow.svg';
+import '../../App.module.scss';
 import l from './LeftBar.module.scss';
 
 const LeftBar = () => {

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/*шапка сайта*/
+.Header {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.Header a {
+  color: #9c4b86;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.hrHeader {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border: 1px solid #f0a30d;
+}
+
+/*# sourceMappingURL=Header.module.css.map */

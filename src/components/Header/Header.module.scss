@@ -1,21 +1,23 @@
 /*шапка сайта*/
-.Header{
+.Header {
   width: 1000px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
-  margin-bottom: 20px;
-  &__bg{
-    position: absolute;
-    left: 0;
-    width:100vw;
-    height: 70px;
-    border-bottom: 2px solid #f0a30d;
-  }
-  a{
-    color:#9c4b86;
+
+  a {
+    color: #9c4b86;
     text-decoration: none;
     font-size: 20px;
   }
+
+}
+
+.hrHeader {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border: 1px solid #f0a30d;
+
 }

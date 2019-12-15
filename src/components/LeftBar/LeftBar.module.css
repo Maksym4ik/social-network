@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/*Левый блок меню*/
+.leftBar {
+  padding: 15px;
+  border: solid 2px #f0a30d;
+  border-radius: 5px;
+}
+.flexRaw {
+  display: flex;
+  align-items: center;
+}
+.flexRaw svg {
+  height: 17px;
+}
+.flexRaw hr {
+  border: 1px solid #f0a30d;
+}
+
+.info {
+  margin-left: 5px;
+}
+
+/*# sourceMappingURL=LeftBar.module.css.map */
