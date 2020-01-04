@@ -1,20 +1,21 @@
 import React from 'react';
 import h from './Header.module.scss';
-import Logo from "../Logo/Logo";
+import Logo from "./Logo/Logo";
+import {NavLink} from "react-router-dom";
 
 
 const Header = () => {
     return (
-        <div>
+
             <header className={h.Header}>
                 <Logo/>
-                <a href='/Volunteers'>волонтери</a>
-                <a href='/Events'>події</a>
-                <a href="/NewEvent">додати подію</a>
-                <a href='/Profile'>профіль</a>
+                <NavLink to='/Volunteers' activeClassName={h.active}>волонтери</NavLink>
+                <NavLink to='/Events' activeClassName={h.active}>події</NavLink>
+                <NavLink to="/NewEvent" activeClassName={h.active}>додати подію</NavLink>
+                <NavLink to='/Profile' activeClassName={h.active}>профіль</NavLink>
             </header>
-            <hr className={h.hrHeader}/>
-        </div>
+
+
     )
 }
 

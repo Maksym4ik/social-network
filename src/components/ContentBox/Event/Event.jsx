@@ -8,15 +8,14 @@ const Event = (props) => {
             <div className={c.flex}>
                 <img src={EventImage} alt=""/>
                 <div className={c.wrapper}>
-                    <h1>Сімейний фест</h1>
-                    <h3>Арена Львів</h3>
+                    <h1>{props.eventName}</h1>
+                    <h3>{props.nameLocation}</h3>
                     <div className={`${c.flex} ${c.wrapper200}`}>
-                        <h3>Львів</h3>
-                        <h3>12.10.2019</h3>
+                        <h3>{props.location}</h3>
+                        <h3>{props.data}</h3>
                     </div>
-                    <span>Подія для покращення свого настрою, піднімемо його і волотерам і учасникам.</span>
+                    <span>{props.about}</span>
                 </div>
-
             </div>
             <hr className={c.hrContent}/>
         </div>

@@ -1,4 +1,4 @@
-import h from './Home.module.scss';
+// import h from './Home.module.scss';
 import React from "react";
 
 const Home = () => {

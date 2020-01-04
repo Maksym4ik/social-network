@@ -1,28 +1,41 @@
-@import '../../mixins/mixins';
+@import "../../mixins/mixins";
 .flex {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.85fr 4fr;
+  grid-gap: 0.3fr;
 
   img {
+
+    display: block;
     height: 190px;
+    width: 190px;
     margin-right: 15px;
+    border-radius: 5px;
   }
 
-  span {
-    text-transform: none;
+  .wrapper {
+
+    width: 400px;
+    h1 {
+      font-size: 25px;
+      color: #9c4b86;
+    }
+    span{
+      text-transform: none;
+    }
   }
+
 }
-
 
 
 .wrapper200 {
   color: #f0a30d;
   justify-content: space-between;
-  width: 200px;
+  width: 300px;
 }
 
-  .hrContent{
-    border: 1px solid $primaryColor;
-    margin: 10px 0;
-  }
-
-
+.hrContent {
+  border: 1px solid $primaryColor;
+  margin: 10px 0;
+}

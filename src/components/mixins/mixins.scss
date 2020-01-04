@@ -1,3 +1,23 @@
-$primaryColor:    #9c4b86;
-$secondaryColor:  #f0a30d;
+$primaryColor: #9c4b86;
+$secondaryColor: #f0a30d;
 $textColor: black;
+
+@font-face {
+  font-family: 'Gotham Pro Bold';
+  src: url('../Fonts/GothamPro-Bold.eot');
+  src: url('../Fonts/GothamPro-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../Fonts/GothamPro-Bold.woff') format('woff'),
+  url('../Fonts/GothamPro-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham Pro Regular';
+  src: url('../Fonts/GothamPro.eot');
+  src: url('../Fonts/GothamPro.eot?#iefix') format('embedded-opentype'),
+  url('../Fonts/GothamPro.woff') format('woff'),
+  url('../Fonts/GothamPro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

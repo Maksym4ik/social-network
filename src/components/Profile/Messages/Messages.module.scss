@@ -1,0 +1,34 @@
+@import "../../mixins/mixins";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+
+  .menuBar {
+    width: 220px;
+    //border: 2px solid $secondaryColor;
+    //border-radius: 5px;
+    a {
+      color: $textColor;
+      text-decoration: none;
+      h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+
+      }
+    }
+
+  }
+
+  .contentBar {
+    width: calc(100% - 230px);
+    //border: 2px solid $primaryColor;
+    //border-radius: 5px;
+    span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+  }
+}
