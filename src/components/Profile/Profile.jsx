@@ -6,6 +6,7 @@ import Messages from "./Messages/Messages";
 import Settings from "./Settings/Settings";
 import Posts from "./Posts/Posts";
 
+
 const Profile = (props) => {
     return (
         <div className={p.wrapper}>
@@ -16,11 +17,12 @@ const Profile = (props) => {
                <NavLink to='/Profile/posts' activeClassName={p.active}>Активність</NavLink>
            </div>
            <div className={p.contentBox}>
-               <Route path='/Profile/profile' render={() => <ProfileInfo  profileInfo={props.profile.profileInfo}/>} />
-               <Route path='/Profile/messages' render={() => <Messages messages={props.profile.messages}/>} />
+               <Route path='/Profile/profile' render={() => <ProfileInfo  profileInfo={props.profilePage.profileInfo}/>} />
+               <Route path='/Profile/messages' render={() => <Messages messages={props.profilePage.messages}/>} />
                <Route path='/Profile/settings' render={() => <Settings />} />
-               <Route path='/Profile/posts' render={() => <Posts posts={props.profile.posts}/>} />
+               <Route path='/Profile/posts' render={() => <Posts posts={props.profilePage.posts} dispatch={props.dispatch} updateText={props.profilePage.updateText}/>} />
            </div>
+            {console.log(props.newPostText)}
         </div>
     )
 

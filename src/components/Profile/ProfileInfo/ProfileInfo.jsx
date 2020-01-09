@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
             </div>
 
             <div className={p.aboutFull}>
-                <textarea maxLength='450' disabled='true'>{props.profileInfo.about}</textarea>
+                <textarea maxLength='450' disabled>{props.profileInfo.about}</textarea>
             </div>
         </div>
     )

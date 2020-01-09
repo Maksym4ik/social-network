@@ -1,6 +1,6 @@
 import React from 'react';
 import a from './App.module.scss';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import Header from './components/Header/Header';
 import SearchBar from "./components/Search/Search";
 import LeftBar from "./components/LeftBar/LeftBar";
@@ -9,13 +9,10 @@ import NewEvent from "./components/NewEvent/NewEvent";
 import Profile from "./components/Profile/Profile";
 import Home from "./components/Home/Home";
 
-//масив
-
-
 const App = (props) => {
 
     return (
-        <BrowserRouter>
+
             <div className={a.mainWrapper}>
                 <div className={a.container}>
                     <Header/>
@@ -44,10 +41,11 @@ const App = (props) => {
                     {/*Додати нову подію*/}
                     <Route path='/NewEvent' render={() => <NewEvent/>}/>
                     {/*Профіль користувача*/}
-                    <Route path='/Profile' render={() => <Profile profile={props.state.profilePage}/>}/>
+                    <Route path='/Profile' render={() => <Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>}/>
+
                 </div>
             </div>
-        </BrowserRouter>
+
     );
 
 }

@@ -7,7 +7,7 @@ const Post = (props) => {
     return(
         <div className={p.post}>
             <h3>{props.title}</h3>
-            <textarea disabled='true'>{props.description}</textarea>
+            <textarea disabled>{props.description}</textarea>
             <div className={p.postInfo}>
                 <span>{props.date}</span>
                 <span>likes {props.likes}</span>
