@@ -1,8 +1,44 @@
 /*Сонтент бокс*/
 @import "../mixins/mixins";
 
-.contentBox{
+.contentBox {
   border: 2px solid $primaryColor;
   padding: 20px;
   border-radius: 5px;
+  .pagesWrapper {
+    width: 120px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 20px;
+    border-top: 2px solid $primaryColor;
+    border-bottom: 2px solid $primaryColor;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    .pages {
+      font-size: 20px;
+      cursor: pointer;
+
+    }
+    .currentPage{
+      font-weight: bold;
+      margin-left: 3px;
+      margin-right: 3px;
+      width: 25px;
+      height: 21px;
+      text-align: center;
+      border-left: 2px solid $primaryColor;
+      border-right: 2px solid $primaryColor;
+      border-radius: 4px;
+      transition: ease all .2s;
+
+    }
+  }
+}
+
+.loaderImage{
+  height: 30px;
+  width: 30px;
 }

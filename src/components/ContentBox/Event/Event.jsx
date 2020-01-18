@@ -1,4 +1,4 @@
-import EventImage from "../../img/EventImage.jpg";
+import EventImage from "../../../assets/images/EventImage.jpg";
 import React from "react";
 import c from "./Event.module.scss"
 

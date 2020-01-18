@@ -1,14 +1,24 @@
 @import "../../mixins/mixins";
 
 .wrapper {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 150px 100%;
   margin: 20px;
+  height: 600px;
 
   .menuBar {
-    width: 220px;
+    width: 150px;
+    height: 100%;
+    overflow: hidden;
     //border: 2px solid $secondaryColor;
     //border-radius: 5px;
+    .navActive {
+      h3 {
+        font-style: italic;
+        color: $primaryColor;
+      }
+    }
+
     a {
       color: $textColor;
       text-decoration: none;
@@ -16,19 +26,56 @@
         font-size: 20px;
         margin-bottom: 5px;
 
+
+
       }
     }
 
   }
 
   .contentBar {
-    width: calc(100% - 230px);
-    //border: 2px solid $primaryColor;
-    //border-radius: 5px;
+    width: calc(100% - 150px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .messages {
+      height: calc(100% - 70px);
+      overflow: hidden;
+    }
+
     span {
       display: block;
       font-size: 20px;
       margin-bottom: 6px;
+    }
+
+    .sentItem {
+      top: calc(100% - 50px);
+      position: absolute;
+      z-index: 100;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      textarea {
+        width: 88%;
+        height: 50px;
+        resize: none;
+        border: 2px solid $secondaryColor;
+        border-radius: 5px;
+        margin-right: 2%;
+      }
+
+      button {
+        width: 10%;
+        height: 50px;
+        background-color: #fff;
+        border: 2px solid $primaryColor;
+        border-radius: 5px;
+      }
     }
   }
 }

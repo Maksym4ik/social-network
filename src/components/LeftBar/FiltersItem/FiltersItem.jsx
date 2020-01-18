@@ -1,11 +1,11 @@
 import React from 'react';
-import {ReactComponent as Arrow} from '../../img/arrow.svg';
+import {ReactComponent as Arrow} from '../../../assets/images/arrow.svg';
 import l from '../LeftBar.module.scss';
 import {NavLink} from "react-router-dom";
 import ItemFilter from "./itemFilter/ItemFilter";
 
 const FiltersItem = (props) => {
-    let pathTo=`/Volunteers/${props.pathTo}`;
+    let pathTo=`/${props.type}/${props.pathTo}`;
 
     return (
         <div className={l.leftBarWrapper}>

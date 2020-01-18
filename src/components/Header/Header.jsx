@@ -9,10 +9,10 @@ const Header = () => {
 
             <header className={h.Header}>
                 <Logo/>
-                <NavLink to='/Volunteers' activeClassName={h.active}>волонтери</NavLink>
+                <NavLink to='/Volunteers' activeClassName={h.active} >волонтери</NavLink>
                 <NavLink to='/Events' activeClassName={h.active}>події</NavLink>
                 <NavLink to="/NewEvent" activeClassName={h.active}>додати подію</NavLink>
-                <NavLink to='/Profile' activeClassName={h.active}>профіль</NavLink>
+                <NavLink to='/Profile/profileInfo' activeClassName={h.active}>профіль</NavLink>
             </header>
 
 

@@ -15,7 +15,9 @@
   }
 
   .wrapper {
-
+    display: flex;
+    flex-flow: column;
+    align-items:flex-start;
     width: 400px;
     h1 {
       font-size: 25px;
@@ -23,6 +25,32 @@
     }
     span{
       text-transform: none;
+    }
+    .buttons{
+      width: 220px;
+      height: 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 10px;
+      //border: 1px solid black;
+      //align-items: center;
+      .notActive{
+        background-color: white;
+        border: 1px solid $primaryColor;
+      }
+
+      .active{
+        color: white;
+        background-color: $primaryColor;
+        border: none;
+        box-shadow: none;
+      }
+
+      button{
+        //width: 100px;
+        //height: 25px;
+      }
     }
   }
 

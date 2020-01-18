@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as SearchIcon} from "../img/searchIcon.svg";
+import {ReactComponent as SearchIcon} from "../../assets/images/searchIcon.svg";
 import s from './Search.module.scss';
 
 const SearchBar = (props) => {

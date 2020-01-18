@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as LogoIcon} from "../../img/SvgLogo.svg";
+import {ReactComponent as LogoIcon} from "../../../assets/images/SvgLogo.svg";
 import l from './Logo.module.scss';
 import {NavLink} from "react-router-dom";
 

@@ -1,3 +1,8 @@
+//имена для dispatch
+import profilePageReducer from "./profilePage-reducer";
+import volunteersPageReducer from "./volunteersPage-reducer";
+import eventsPageReducer from "./eventsPage-reducer";
+
 //главный масив и обьект хранения даных
 let store = {
     //хранилище даных
@@ -91,36 +96,38 @@ let store = {
                 secName: 'Falat',
                 age: '22',
                 location: 'Львів',
-                career: 'поганець',
+                career: 'безробітній',
                 about: 'Шел чудак Раскаленному солнцу  подставив нагретый чердак Шел чудак, за спиной его тихо качался рюкзак Шел домой Представляя, как все удивятся тому, что живой Что ничто не случилось такого с его головой Так и есть У него для людей была самая добрая весть И он шел по дороге, от счастья светящийся весь Love and peace Люди могут конечно спастись от падения вниз И он шел рассказать им о том как им можно спастись'
             },
             messages: [
-                {id: 0, message: 'Маю цікаву пропозиію', from: 'andrew'},
+                {id: 0, message: 'Маю цікаву пропозиію', idMessage: 0, from: 'andrew'},
+
                 {id: 1, message: 'Маю нецікаву пропозиію', from: 'sasha'},
                 {id: 2, message: 'Маю цікаву пропозиію', from: 'vova'},
                 {id: 3, message: 'Маю нецікаву пропозиію', from: 'ivan'},
                 {id: 4, message: 'Маю цікаву пропозиію', from: 'artur'},
                 {id: 5, message: 'Маю нецікаву пропозиію', from: 'somak'}
             ],
+            updateMessageText: '',
             posts: [
                 {
                     id: 0,
                     title: 'Перевірка',
-                    description: 'Woow це мій перший пост на цьому сайті, круто)',
+                    description: 'Woow це пост на цьому сайті',
                     date: '12.01.2020',
                     likes: 1
                 },
                 {
                     id: 1,
-                    title: 'чудовий день)',
-                    description: 'сьогодні крутий день, щоб розвиватись))',
+                    title: 'новий пост',
+                    description: 'новий день',
                     date: '18.01.2020',
                     likes: 2
                 },
                 {
                     id: 2,
-                    title: 'хочу на подію',
-                    description: 'хочу потрапити на свою першу подію',
+                    title: 'подія',
+                    description: 'пост для показу події',
                     date: '05.02.2020',
                     likes: 7
                 },
@@ -136,69 +143,26 @@ let store = {
         return this._state;
     },
     //ререндер всего UI
-    _callSubscriber(one) {
+    _render() {
         console.log('update');
-    },
+        },
 //функция получения даты формата дд.мм.гггг
-    _getDate() {
-        let d = new Date();
-        let curr_date = d.getDate();
-        if (curr_date < 10) curr_date = '0' + curr_date;
-        let curr_month = d.getMonth() + 1;
-        if (curr_month < 10) curr_month = '0' + curr_month;
-        let curr_year = d.getFullYear();
-        let date = curr_date + '.' + curr_month + '.' + curr_year;
-        return date;
-    },
-//Оновление UI при вводе информации в меню посты
-    _newPostText(title, description) {
-        let updateText = this._state.profilePage.updateText;
-        updateText.textTitle = title;
-        console.log(updateText.textTitle);
-        updateText.textDescription = description;
-        console.log(updateText.textDescription);
-        this._callSubscriber(this);
-    },
-//функция добавления поста в масив и запуск функции ререндера UI
-    _pushNewPost() {
-        let posts = this._state.profilePage.posts;
-        let id = posts[posts.length];
-        let updateText = this._state.profilePage.updateText;
-        //формируем обьект для state.profilePage.posts
-        let newItem = {
-            id: id,
-            title: updateText.textTitle,
-            description: updateText.textDescription,
-            date: this._getDate(),
-            likes: 0
-        }
-        //добавляем обьект в state и ререндерим UI
-        posts.push(newItem);
-        updateText.textTitle = '';
-        updateText.textDescription = '';
-        this._callSubscriber(this);
-    },
-    //
+
     subscribe(observer) {
-        this._callSubscriber = observer;
+        this._render = observer;
 
     },
-    dispatch(action){
-        debugger;
-        switch(action.type){
-            case 'NEW-POST-TEXT' :
-                this._newPostText(action.title,action.description);
-                break;
-            case 'PUSH-NEW-POST':
-                this._pushNewPost();
-                break;
-            default:
-                alert('Something Error');
-                break;
-        }
+
+    dispatch(action) {
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action);
+        this._state.volunteersPage = volunteersPageReducer(this._state.volunteersPage, action);
+        this._state.eventsPage = eventsPageReducer(this._state.eventsPage, action);
+
+        this._render(this);
     }
 }
 
-
 window.store = store;
 export default store;
+
+
