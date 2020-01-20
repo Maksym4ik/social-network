@@ -9,15 +9,9 @@ let mapStateToProps = (state) => {
         updatePostText: state.profilePage.updatePostText
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        pushNewPostCreator: () => {
-            dispatch(pushNewPostCreator());
-        },
-        newPostTextCreator: (title, description) => {
-            dispatch(newPostTextCreator(title, description));
-        }
-    }
+let mapDispatchToProps = {
+    pushNewPostCreator,
+    newPostTextCreator
 }
 const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
 export default PostsContainer;

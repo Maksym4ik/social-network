@@ -63,6 +63,6 @@ let eventsPageReducer = (state = initialStale, action) => {
 export default eventsPageReducer;
 
 export let followAC = (userId) => ({type: FOLLOW, userId});
-export let setEventsAC = (events) => ({type: SET_EVENTS, events});
-export let clickOnPageEventAC = (pageNumber) => ({type: CLICK_ON_PAGE_EVENT, pageNumber});
+export let setEvents = (events) => ({type: SET_EVENTS, events});
+export let clickOnPageEvents = (pageNumber) => ({type: CLICK_ON_PAGE_EVENT, pageNumber});
 export let isFetchingActive = (isFetching) => ({type: IS_FETCHING_ACTIVE, isFetching});

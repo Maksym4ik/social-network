@@ -1,6 +1,7 @@
 let FOLLOW = 'FOLLOW',
     SET_USERS = 'SET_USERS',
-    CLICK_ON_PAGE = 'CLICK_ON_PAGE';
+    CLICK_ON_PAGE = 'CLICK_ON_PAGE',
+    IS_FETCHING_ACTIVE = 'IS_FETCHING_ACTIVE';
 
 
 let initialState =
@@ -33,7 +34,8 @@ let initialState =
         volunteers: [],
         volunteersCount: 14,
         volunteersPageSize: 5,
-        volunteersCurrentPage: 1
+        volunteersCurrentPage: 1,
+        isFetching: false
     };
 
 
@@ -61,13 +63,18 @@ let volunteersPageReducer = (state = initialState, action) => {
                 ...state,
                 volunteersCurrentPage: action.pageNumber
             }
-
+        case IS_FETCHING_ACTIVE:
+            return {
+                ...state,
+            isFetching: action.isFetching
+                }
         default:
             return state
     }
 }
 
 export default volunteersPageReducer;
-export let followAC = (userId) => ({type: FOLLOW, userId});
-export let setVolunteersAC = (volunteers) => ({type: SET_USERS, volunteers});
-export let clickOnPageAC = (pageNumber) => ({type:CLICK_ON_PAGE, pageNumber: pageNumber});
+export let followUser = (userId) => ({type: FOLLOW, userId});
+export let setVolunteers = (volunteers) => ({type: SET_USERS, volunteers});
+export let clickOnPageVolunteers = (pageNumber) => ({type:CLICK_ON_PAGE, pageNumber: pageNumber});
+export let isFetchingActive = (isFetching) => ({type: IS_FETCHING_ACTIVE, isFetching});

@@ -1,5 +1,6 @@
 import React from "react";
 import c from "./Volunteer.module.scss"
+import {NavLink} from "react-router-dom";
 
 
 const Volunteer = (props) => {
@@ -7,7 +8,7 @@ const Volunteer = (props) => {
     return (
         <div>
             <div className={c.flex}>
-                <img src={props.photoUrl} alt="broken avatar"/>
+                <NavLink to={`/Profile/profileInfo/${props.id}`}><img src={props.photoUrl} alt="broken avatar"/></NavLink>
                 <div className={c.wrapper}>
                     <h1>{props.firstName}</h1>
                     <h3>{props.career}</h3>

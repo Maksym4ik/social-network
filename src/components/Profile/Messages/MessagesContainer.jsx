@@ -9,15 +9,9 @@ let mapStateToProps = (state) => {
         updateMessageText: state.profilePage.updateMessageText
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        pushNewMessageCreator: () => {
-            dispatch(pushNewMessageCreator())
-        },
-        newMessageTextCreator: (text) => {
-            dispatch(newMessageTextCreator(text))
-        },
-    }
+let mapDispatchToProps = {
+    pushNewMessageCreator,
+    newMessageTextCreator
 }
 const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
 export default MessagesContainer;

@@ -8,10 +8,9 @@ let mapStateToProps = (state) => {
         type: 'Events'
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
+let mapDispatchToProps ={
 
     }
-}
+
 const LeftBarEventContainer = connect(mapStateToProps,mapDispatchToProps)(LeftBar);
 export default LeftBarEventContainer;

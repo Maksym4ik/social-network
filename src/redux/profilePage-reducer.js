@@ -6,16 +6,30 @@ const type_NEW_POST_TEXT = 'NEW_POST_TEXT';
 const type_PUSH_NEW_MESSAGE = 'PUSH_NEW_MESSAGE';
 const type_NEW_MESSAGE_TEXT = 'NEW_MESSAGE_TEXT';
 
+const TAKE_NEW_PROFILE = 'TAKE_NEW_PROFILE';
+const TAKE_ME_BACK = 'TAKE_ME_BACK';
+
 let initialState =
     {
-        profileInfo: {
+        myProfile: {
             id: 10001,
+            followed: false,
             firstName: 'Maksym',
-            secName: 'Falat',
             age: '22',
             location: 'Львів',
             career: 'безробітній',
-            about: 'Шел чудак Раскаленному солнцу  подставив нагретый чердак Шел чудак, за спиной его тихо качался рюкзак Шел домой Представляя, как все удивятся тому, что живой Что ничто не случилось такого с его головой Так и есть У него для людей была самая добрая весть И он шел по дороге, от счастья светящийся весь Love and peace Люди могут конечно спастись от падения вниз И он шел рассказать им о том как им можно спастись'
+            photoUrl: null,
+            about: 'Шел чудак Раскаленному солнцу подставив нагретый чердак Шел чудак, за спиной его тихо качался рюкзак Шел домой Представляя, как все удивятся тому, что живой Что ничто не случилось такого с его головой Так и есть У него для людей была самая добрая весть И он шел по дороге, от счастья светящийся весь Love and peace Люди могут конечно спастись от падения вниз И он шел рассказать им о том как им можно спастись'
+        },
+        profileInfo: {
+            id: 10001,
+            followed: false,
+            firstName: 'Maksym',
+            age: '22',
+            location: 'Львів',
+            career: 'безробітній',
+            photoUrl: null,
+            about: 'Шел чудак Раскаленному солнцу подставив нагретый чердак Шел чудак, за спиной его тихо качался рюкзак Шел домой Представляя, как все удивятся тому, что живой Что ничто не случилось такого с его головой Так и есть У него для людей была самая добрая весть И он шел по дороге, от счастья светящийся весь Love and peace Люди могут конечно спастись от падения вниз И он шел рассказать им о том как им можно спастись'
         },
         messages: [
             {id: 0, message: 'Маю цікаву пропозиію', idMessage: 0, from: 'andrew'},
@@ -66,8 +80,7 @@ let profilePageReducer = (state = initialState, action) => {
         let curr_month = d.getMonth() + 1;
         if (curr_month < 10) curr_month = '0' + curr_month;
         let curr_year = d.getFullYear();
-        let date = curr_date + '.' + curr_month + '.' + curr_year;
-        return date;
+        return curr_date + '.' + curr_month + '.' + curr_year;
     }
     switch (action.type) {
         //Оновление UI при вводе информации в меню посты
@@ -114,7 +127,16 @@ let profilePageReducer = (state = initialState, action) => {
                 }],
                 updateMessageText: ''
             }
-
+        case TAKE_NEW_PROFILE:
+            return {
+                ...state,
+                profileInfo: action.newProfile
+            }
+        case TAKE_ME_BACK:
+            return {
+                ...state,
+                profileInfo: {...state.myProfile}
+            }
         default:
             return state;
     }
@@ -129,9 +151,7 @@ export let newPostTextCreator = (title, description) => ({
     title: title,
     description: description
 });
-
 export let pushNewMessageCreator = () => ({type: type_PUSH_NEW_MESSAGE});
-export let newMessageTextCreator = (messageText) => ({
-    type: type_NEW_MESSAGE_TEXT,
-    messageText: messageText
-});
+export let newMessageTextCreator = (messageText) => ({type: type_NEW_MESSAGE_TEXT, messageText});
+export let takeNewProfile = (newProfile) => ({type: TAKE_NEW_PROFILE, newProfile});
+export let takeMeBack = () => ({type: TAKE_ME_BACK});

@@ -4,14 +4,14 @@ import PhotoCard from '../../../assets/images/ava.jpg';
 
 const ProfileInfo = (props) => {
     let P = props.profileInfo;
+    debugger
     return (
 
         <div className={p.wrapper}>
             <div className={p.mainInfo}>
-                <img src={PhotoCard} alt=""/>
+                <img src={P.photoUrl ? P.photoUrl : PhotoCard} alt=""/>
                 <div className={p.description}>
                     <h1>{P.firstName}</h1>
-                    <h1>{P.secName}</h1>
                     <h2>{P.age} <span> роки</span></h2>
                     <h2>{P.location}</h2>
                     <h1>{P.career}</h1>

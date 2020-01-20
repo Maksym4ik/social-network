@@ -25,8 +25,8 @@ const App = () => {
                 <Route path='/Volunteers' render={() => {
                     return (
                         <div className={a.gridContainer}>
-                            <LeftBarVolunteersContainer type='volunteers'/>
-                            <VolunteersContentBoxContainer type='volunteers'/>
+                            <LeftBarVolunteersContainer />
+                            <VolunteersContentBoxContainer />
                         </div>
                     )
                 }}/>

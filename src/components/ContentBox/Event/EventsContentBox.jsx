@@ -1,5 +1,6 @@
 import React from "react";
 import c from "../ContentBox.module.scss";
+import LoaderGif from "../../common/LoaderGif";
 
 
 
@@ -27,7 +28,7 @@ let EventsContentBox = (props) => {
 
     let pagesRender =
         <div className={c.pagesWrapper}>
-            {props.isFetching ? <img alt='loader' src={props.loaderGif} className={c.loaderImage}/>: 'page '} {pageViewE}
+                {props.isFetching ? <LoaderGif/>: 'page '} {pageViewE}
         </div>;
 
     return <div className={c.contentBox}>
