@@ -1,3 +1,5 @@
+import {volunteersAPI} from "../api/api";
+
 let FOLLOW = 'FOLLOW',
     SET_USERS = 'SET_USERS',
     CLICK_ON_PAGE = 'CLICK_ON_PAGE',
@@ -78,3 +80,13 @@ export let followUser = (userId) => ({type: FOLLOW, userId});
 export let setVolunteers = (volunteers) => ({type: SET_USERS, volunteers});
 export let clickOnPageVolunteers = (pageNumber) => ({type:CLICK_ON_PAGE, pageNumber: pageNumber});
 export let isFetchingActive = (isFetching) => ({type: IS_FETCHING_ACTIVE, isFetching});
+
+export const getVolunteers = (currentPage) => {
+    return (dispatch) => {
+        dispatch(isFetchingActive(true));
+        volunteersAPI.getVolunteers(currentPage).then(response => {
+            dispatch(isFetchingActive(false));
+            dispatch(setVolunteers(response.data));
+        })
+    }
+}

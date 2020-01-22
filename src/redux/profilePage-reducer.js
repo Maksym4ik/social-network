@@ -18,17 +18,17 @@ let initialState =
             age: '22',
             location: 'Львів',
             career: 'безробітній',
-            photoUrl: null,
+            photoUrl: "https://instagram.flwo1-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/72183849_144261533585838_2632676162811229883_n.jpg?_nc_ht=instagram.flwo1-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=SdC8tvERSDQAX82q578&oh=7b34435aebafdb06c231a5ca8ab48163&oe=5E9F4CA0",
             about: 'Шел чудак Раскаленному солнцу подставив нагретый чердак Шел чудак, за спиной его тихо качался рюкзак Шел домой Представляя, как все удивятся тому, что живой Что ничто не случилось такого с его головой Так и есть У него для людей была самая добрая весть И он шел по дороге, от счастья светящийся весь Love and peace Люди могут конечно спастись от падения вниз И он шел рассказать им о том как им можно спастись'
         },
         profileInfo: {
             id: 10001,
             followed: false,
-            firstName: 'Maksym',
-            age: '22',
-            location: 'Львів',
-            career: 'безробітній',
-            photoUrl: null,
+            firstName: 'NAME',
+            age: 'AGE',
+            location: 'LOCATION',
+            career: 'CAREER',
+            photoUrl: '',
             about: 'Шел чудак Раскаленному солнцу подставив нагретый чердак Шел чудак, за спиной его тихо качался рюкзак Шел домой Представляя, как все удивятся тому, что живой Что ничто не случилось такого с его головой Так и есть У него для людей была самая добрая весть И он шел по дороге, от счастья светящийся весь Love and peace Люди могут конечно спастись от падения вниз И он шел рассказать им о том как им можно спастись'
         },
         messages: [
@@ -93,7 +93,7 @@ let profilePageReducer = (state = initialState, action) => {
 
         //функция добавления поста в масив
         case type_PUSH_NEW_POST:
-            debugger;
+
             return {
                 ...state,
                 posts: [...state.posts, {
@@ -118,6 +118,7 @@ let profilePageReducer = (state = initialState, action) => {
 
         //функция добавления сообщения в масив
         case type_PUSH_NEW_MESSAGE:
+
             return {
                 ...state,
                 messages: [...state.messages, {

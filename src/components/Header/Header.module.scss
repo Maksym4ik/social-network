@@ -6,7 +6,16 @@
   align-items: center;
   justify-content: space-between;
   height: 80px;
-
+  .profile{
+    position: relative;
+    .login{
+      position: absolute;
+      font-style: italic;
+      font-size: 15px;
+      top: 120%;
+      left: 0;
+    }
+  }
   a {
     color: #9c4b86;
     text-decoration: none;

@@ -1,24 +1,13 @@
 import {connect} from "react-redux";
-import {
-    clickOnPageEvents,
-    isFetchingActive,
-    setEvents,
-} from "../../../redux/eventsPage-reducer";
+import {clickOnPageEvents, getStartEvents, isFetchingActive, setEvents,} from "../../../redux/eventsPage-reducer";
 import React from "react";
-import * as axios from "axios";
 import Event from "./Event";
 import EventsContentBox from "./EventsContentBox";
 
 class EventsContentBoxApi extends React.Component {
 
     componentDidMount() {
-        this.props.isFetchingActive(true);
-        axios.get(`http://localhost:3000/events${this.props.eventsCurrentPage}`)
-            .then(response => {
-                this.props.setEvents(response.data)
-                this.props.isFetchingActive(false);
-            })
-
+        this.props.getStartEvents(this.props.eventsCurrentPage);
     }
 
     event = () => {
@@ -31,13 +20,8 @@ class EventsContentBoxApi extends React.Component {
     }
 
     onPageChange = (e) => {
-        this.props.isFetchingActive(true);
         this.props.clickOnPageEvents(e);
-        axios.get(`http://localhost:3000/events${e}`)
-            .then(response => {
-                this.props.isFetchingActive(false);
-                this.props.setEvents(response.data)
-            })
+        this.props.getStartEvents(e);
 
     }
 
@@ -69,7 +53,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = {
     clickOnPageEvents,
     setEvents,
-    isFetchingActive
+    isFetchingActive,
+    getStartEvents
 }
 
 const EventsContentBoxContainer = connect(mapStateToProps, mapDispatchToProps)(EventsContentBoxApi);

@@ -1,3 +1,5 @@
+import {eventsApi} from "../api/api";
+
 let FOLLOW = 'FOLLOW',
     SET_EVENTS = 'SET_EVENTS',
     CLICK_ON_PAGE_EVENT = 'CLICK_ON_PAGE_EVENT',
@@ -66,3 +68,15 @@ export let followAC = (userId) => ({type: FOLLOW, userId});
 export let setEvents = (events) => ({type: SET_EVENTS, events});
 export let clickOnPageEvents = (pageNumber) => ({type: CLICK_ON_PAGE_EVENT, pageNumber});
 export let isFetchingActive = (isFetching) => ({type: IS_FETCHING_ACTIVE, isFetching});
+
+export const getStartEvents = (currentPage) => {
+    return (dispatch) => {
+        dispatch(isFetchingActive(true));
+        eventsApi.getEvents(currentPage)
+            .then(response => {
+
+                dispatch(setEvents(response.data))
+                dispatch(isFetchingActive(false));
+            })
+    }
+}

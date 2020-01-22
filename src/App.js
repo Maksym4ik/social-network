@@ -1,7 +1,6 @@
 import React from 'react';
 import a from './App.module.scss';
 import {Route} from "react-router-dom";
-import Header from './components/Header/Header';
 import SearchBar from "./components/Search/Search";
 import NewEvent from "./components/NewEvent/NewEvent";
 import Profile from "./components/Profile/Profile";
@@ -10,6 +9,7 @@ import LeftBarEventContainer from "./components/LeftBar/LeftBarEventContainer";
 import EventsContentBoxContainer from "./components/ContentBox/Event/EventsContentBoxContainer";
 import LeftBarVolunteersContainer from "./components/LeftBar/LeftBarVolunteersContainer";
 import VolunteersContentBoxContainer from "./components/ContentBox/Volunteer/VolunteersContentBoxContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = () => {
 
@@ -17,7 +17,7 @@ const App = () => {
 
         <div className={a.mainWrapper}>
             <div className={a.container}>
-                <Header/>
+                <HeaderContainer />
                 <Route path='/Home' render={() => <Home/>}/>
                 <Route path='/Volunteers' render={() => <SearchBar/>}/>
                 <Route path='/Events' render={() => <SearchBar/>}/>

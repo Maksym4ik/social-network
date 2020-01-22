@@ -18,7 +18,7 @@ const Profile = () => {
                <NavLink to='/Profile/posts' activeClassName={p.active}>Активність</NavLink>
            </div>
            <div className={p.contentBox}>
-               <Route path='/Profile/profileInfo/:userId' render={() => <ProfileInfoContainer/>} />
+               <Route path='/Profile/profileInfo/:userId?' render={() => <ProfileInfoContainer/>} />
                <Route path='/Profile/messages' render={() => <MessagesContainer/>} />
                <Route path='/Profile/settings' render={() => <Settings />} />
                <Route path='/Profile/posts' render={() => <PostsContainer />} />

@@ -1,21 +1,34 @@
 import {connect} from "react-redux";
 import ProfileInfo from "./ProfileInfo";
 import React from "react";
-import * as axios from "axios";
 import {takeMeBack, takeNewProfile} from "../../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
+import {volunteersAPI} from "../../../api/api";
 
 
-class ProfileInfoContainer extends React.Component{
+class ProfileInfoContainer extends React.Component {
 
     componentDidMount() {
-        axios.get('http://localhost:3000/volunteers1')
-            .then(response => {
-                this.props.takeNewProfile(response.data[2]);
+
+        let userId = this.props.match.params.userId, newUser;
+        if (!userId) userId=1001;
+        volunteersAPI.getVolunteers(1).then(response => {
+                response.data.map(value => {
+                    if (Number(userId) === value.id)
+                        newUser = value;
+                    return value
+                })
+                this.props.takeNewProfile(newUser)
             })
+
     }
+
+
     render() {
-        return <> <button onClick={this.props.takeMeBack}>myProfile</button> <ProfileInfo {...this.props}/></>
+        let btnMyProfile = <button onClick={this.props.takeMeBack}>myProfile</button>
+        return <>
+            {btnMyProfile}
+            <ProfileInfo {...this.props}/></>
     }
 }
 
