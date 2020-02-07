@@ -7,7 +7,7 @@ let initialStale =
         login: 'login',
         id: 0,
         email: 'email',
-        isAuth: false
+        isAuth: true
     };
 
 let AuthReducer = (state = initialStale, action) => {

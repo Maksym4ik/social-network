@@ -1,6 +1,7 @@
 import React from 'react';
 import m from './Messages.module.scss';
 import {NavLink} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
 
 const Messages = (props) => {
 
@@ -11,14 +12,10 @@ const Messages = (props) => {
         </NavLink>);
     let message = props.messages.map(value => <span key={value.id}>{value.message}</span>);
 
-    let updateText = (e) => {
-        let messageText = e.target.value;
-        props.newMessageTextCreator(messageText);
-    }
-    let pushText = () => {
-        props.pushNewMessageCreator();
-    }
 
+    let pushText = (value) => {
+        props.pushNewMessageCreator(value.messageText);
+    }
 
     return (
         <div className={m.wrapper}>
@@ -30,13 +27,19 @@ const Messages = (props) => {
                     {message}
                 </div>
 
-                <div className={m.sentItem}>
-                    <textarea onChange={updateText} value={props.updateMessageText}/>
-                    <button onClick={pushText}>send</button>
-                </div>
+               <MessageFormRedux onSubmit={pushText}/>
             </div>
         </div>
 
     )
 }
 export default Messages;
+
+const MessageForm = (props) => {
+    return <form className={m.sentItem} onSubmit={props.handleSubmit}>
+        <Field component={"textarea"} name={"messageText"}/>
+        <button>send</button>
+    </form>
+}
+
+const MessageFormRedux = reduxForm({form: "messageForm"})(MessageForm)

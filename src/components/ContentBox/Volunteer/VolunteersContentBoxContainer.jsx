@@ -8,6 +8,7 @@ import {
 import React from "react";
 import VolunteersContentBox from "./VolunteersContentBox";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
 
 
 class VolunteersContentBoxContainer extends React.Component {
@@ -29,13 +30,7 @@ class VolunteersContentBoxContainer extends React.Component {
     render() {
         return <VolunteersContentBox
             onPageChange={this.onPageChange}
-            volunteerMapping={this.volunteerMapping}
-            v={this.props.v}
-            volunteersCount={this.props.volunteersCount}
-            volunteersPageSize={this.props.volunteersPageSize}
-            volunteersCurrentPage={this.props.volunteersCurrentPage}
-            isFetching={this.props.isFetching}
-            followUser={this.props.followUser}
+            {...this.props}
 
         />
     }
@@ -59,6 +54,8 @@ let mapDispatchToProps = {
     getVolunteers
 }
 
-let WithUrlDataContainerComponent = withRouter(VolunteersContentBoxContainer);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter
+)(VolunteersContentBoxContainer)
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithUrlDataContainerComponent);

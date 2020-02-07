@@ -1,0 +1,45 @@
+@import "../mixins/mixins";
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-flow: column;
+
+    div {
+      display: flex;
+      align-items: center;
+    }
+
+    .log, .pass, .button, .checkbox {
+      height: 40px;
+      border: none;
+      font-size: 20px;
+    }
+    .log{
+      position: relative;
+      border-bottom: 2px solid $primaryColor;
+      
+    }
+    .pass{
+      border-bottom: 2px solid $secondaryColor;
+    }
+    .button{
+      color: white;
+      font-size: 25px;
+      background: linear-gradient(-135deg, $primaryColor,$secondaryColor);
+      transition: ease all 0.5s;
+      &:hover{
+        background: linear-gradient(135deg, $primaryColor, $secondaryColor);
+        transition: ease-in all 0.5s;
+      }
+    }
+  }
+}

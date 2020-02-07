@@ -1,48 +1,86 @@
 import {connect} from "react-redux";
 import ProfileInfo from "./ProfileInfo";
 import React from "react";
-import {takeMeBack, takeNewProfile} from "../../../redux/profilePage-reducer";
+import {takeMeBack, takeMyProfile, takeNewProfile, takeVolunteers, applyEditModeAbout} from "../../../redux/profilePage-reducer";
 import {withRouter} from "react-router-dom";
-import {volunteersAPI} from "../../../api/api";
+import {withLoginRedirect} from "../../../hoc/withLoginRedirect";
+import {compose} from "redux";
 
 
 class ProfileInfoContainer extends React.Component {
 
-    componentDidMount() {
-
-        let userId = this.props.match.params.userId, newUser;
-        if (!userId) userId=1001;
-        volunteersAPI.getVolunteers(1).then(response => {
-                response.data.map(value => {
-                    if (Number(userId) === value.id)
-                        newUser = value;
-                    return value
-                })
-                this.props.takeNewProfile(newUser)
-            })
-
+    //local State
+    state = {
+        editMode: false,
+        textAbout: ''
     }
 
+    componentDidMount() {
+        let userId = this.props.match.params.userId;
+        if (!userId) userId = 1001;
+        this.props.takeVolunteers(userId);
+
+    }
+    onEditModeChange = (e) => {
+        this.setState({
+            textAbout: e.currentTarget.value
+        })
+    }
+
+//получить профиль пользователя
+    takeUserProfile = () => {
+        this.props.takeMyProfile(this.props.volunteers);
+    }
+
+    //edit mode for field about
+    activateEditMode = () => {
+        debugger
+        this.setState({
+            editMode: true,
+            textAbout: this.props.profileInfo.about
+        })
+    }
+
+    deactivateEditMode =() => {
+        this.setState({
+            editMode: false
+        })
+        this.props.applyEditModeAbout(this.state.textAbout);
+    }
 
     render() {
-        let btnMyProfile = <button onClick={this.props.takeMeBack}>myProfile</button>
+        let btnMyProfile = <button onClick={this.takeUserProfile}>myProfile</button>
         return <>
             {btnMyProfile}
-            <ProfileInfo {...this.props}/></>
+            <ProfileInfo
+                profileInfo={this.props.profileInfo}
+                activateMode={this.activateEditMode}
+                onEditModeChange={this.onEditModeChange}
+                deactivateMode={this.deactivateEditMode}
+                editMode={this.state.editMode}
+                textAbout={this.state.textAbout}
+
+            />
+        </>
     }
 }
 
 let mapStateToProps = (state) => {
     return {
         profileInfo: state.profilePage.profileInfo,
+        volunteers: state.volunteersPage.volunteers
     }
 }
 let mapDispatchToProps = {
     takeNewProfile,
-    takeMeBack
+    takeMeBack,
+    takeVolunteers,
+    takeMyProfile,
+    applyEditModeAbout
 }
 
-
-let MapUrlDataContainerComponents = withRouter(ProfileInfoContainer);
-
-export default connect(mapStateToProps, mapDispatchToProps)(MapUrlDataContainerComponents);
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter,
+    withLoginRedirect
+)(ProfileInfoContainer);

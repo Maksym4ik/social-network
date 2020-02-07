@@ -4,7 +4,7 @@ import Logo from "./Logo/Logo";
 import {NavLink} from "react-router-dom";
 
 
-const Header = ({isAuth, login, id}) => {
+const Header = ({isAuth, login}) => {
     return (
 
         <header className={h.Header}>
@@ -13,8 +13,8 @@ const Header = ({isAuth, login, id}) => {
             <NavLink to='/Events' activeClassName={h.active}>події</NavLink>
             <NavLink to="/NewEvent" activeClassName={h.active}>додати подію</NavLink>
             <div className={h.profile}>
-                <NavLink to='/Profile/profileInfo' activeClassName={h.active}>профіль </NavLink>
-                <NavLink to={`/Profile/profileInfo/${id}`} className={h.login}>{isAuth ? login : `login`}</NavLink>
+                <NavLink to='/Profile/profileInfo' activeClassName={h.active} >профіль </NavLink>
+                <NavLink to={!isAuth ? `/login` : `/Profile/settings`} className={h.login} activeClassName={h.loginActive}>{isAuth ? login : `Log In`}</NavLink>
             </div>
         </header>
 

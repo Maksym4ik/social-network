@@ -9,14 +9,20 @@
   .profile{
     position: relative;
     .login{
+      cursor: pointer;
       position: absolute;
-      font-style: italic;
+      //font-style: italic;
       font-size: 15px;
       top: 120%;
       left: 0;
+      text-transform: none;
+    }
+    .loginActive{
+      text-decoration: underline;
     }
   }
   a {
+    cursor: pointer;
     color: #9c4b86;
     text-decoration: none;
     font-size: 20px;
@@ -34,6 +40,7 @@
   }
 
   a.active {
+    cursor: pointer;
     color: #521d48;
     &:before {
       content: '';
